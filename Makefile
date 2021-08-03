@@ -1,6 +1,8 @@
 COMPOSE = docker-compose
 RAKE = ${COMPOSE} exec app bundle exec rake
 
+run:
+	@${COMPOSE} exec app bundle exec
 start:
 	@${COMPOSE} up -d
 stop:

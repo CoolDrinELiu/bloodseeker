@@ -7,11 +7,11 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV['DATABASE_NAME'] %>
-  username: <%= ENV['DATABASE_USER'] %>
+  database: <%= ENV['DATABASE_NAME'] || 'starecow_development' %>
+  username: <%= ENV['DATABASE_USER'] || 'postgres' %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
   port: <%= ENV['DATABASE_PORT'] || '5432' %>
-  host: <%= ENV['DATABASE_HOST'] %>
+  host: <%= ENV['DATABASE_HOST'] || '127.0.0.1' %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
