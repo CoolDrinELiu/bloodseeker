@@ -34,3 +34,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pg', '~>1.1.3'
 gem 'sidekiq', '~>6.0.0'
+gem 'react-rails'
