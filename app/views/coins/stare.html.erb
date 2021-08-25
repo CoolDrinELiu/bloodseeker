@@ -1,5 +1,8 @@
+<%= link_to root_path do %>
+  <h3>Back</h3>
+<% end %>
 <div class="d-none d-lg-block">
-  <h3><%= latest_time @records.first %></h3>
+  <h3><%= Time.current.strftime("%Y-%m-%d %H:%M:%S") %></h3>
   <table class="table">
     <thead>
       <tr class="shadow-sm">
@@ -15,13 +18,13 @@
     <tbody>
       <% @records.each do |r| %>
         <tr class="shadow-sm">
-          <td><%= r.name %></td>
-          <td><%= r.days_left&.round(2) %></td>
-          <td><%= r.annual_rate&.round(4) %>%</td>
-          <td><%= r.landed_rate&.round(4) %>%</td>
-          <td><%= r.gap_rate&.round(4) %>%</td>
-          <td><%= r.future_price %></td>
-          <td><%= r.spot_price %></td>
+          <td><%= r["coin"] %></td>
+          <td><%= r["days"]&.round(2) %></td>
+          <td><%= r["expected_margin"]&.round(4) %>%</td>
+          <td><%= r["real_margin_expected"]&.round(4) %>%</td>
+          <td><%= r["gap_rate"]&.round(4) %>%</td>
+          <td><%= r["dm_first_bid"] %></td>
+          <td><%= r["spot_first_bid"] %></td>
         </tr>
       <% end %>
     </tbody>
@@ -29,7 +32,7 @@
 </div>
 
 <div class="d-lg-block d-xl-none">
-  <h1><%= latest_time @records.first %></h1>
+  <h1><%= Time.current.strftime("%Y-%m-%d %H:%M:%S") %></h1>
   <table class="table">
     <thead>
       <tr class="shadow-sm">
@@ -45,13 +48,13 @@
     <tbody>
       <% @records.each do |r| %>
         <tr class="shadow-sm">
-          <td class="display-6"><%= r.name %></td>
-          <td class="display-6"><%= r.days_left&.round(2) %></td>
-          <td class="display-6"><%= r.annual_rate&.round(4) %>%</td>
-          <td class="display-6"><%= r.landed_rate&.round(4) %>%</td>
-          <td class="display-6"><%= r.gap_rate&.round(4) %>%</td>
-          <td class="display-6"><%= r.future_price %></td>
-          <td class="display-6"><%= r.spot_price %></td>
+          <td><%= r["coin"] %></td>
+          <td><%= r["days"]&.round(2) %></td>
+          <td><%= r["expected_margin"]&.round(4) %>%</td>
+          <td><%= r["real_margin_expected"]&.round(4) %>%</td>
+          <td><%= r["gap_rate"]&.round(4) %>%</td>
+          <td><%= r["dm_first_bid"] %></td>
+          <td><%= r["spot_first_bid"] %></td>
         </tr>
       <% end %>
     </tbody>

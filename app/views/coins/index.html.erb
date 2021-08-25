@@ -1,0 +1,59 @@
+<div class="d-none d-lg-block">
+  <h3><%= latest_time @records.first %></h3>
+  <table class="table">
+    <thead>
+      <tr class="shadow-sm">
+        <th scope="col"><p class="fw-bold display-6">Coin</p></th>
+        <th scope="col"><p class="fw-bold display-6">Days</p></th>
+        <th scope="col"><p class="fw-bold display-6">Annual</p></th>
+        <th scope="col"><p class="fw-bold display-6">Landed</p></th>
+        <th scope="col"><p class="fw-bold display-6">Gap Rate</p></th>
+        <th scope="col"><p class="fw-bold display-6">Future</p></th>
+        <th scope="col"><p class="fw-bold display-6">Spot</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @records.each do |r| %>
+        <tr class="shadow-sm">
+          <td><%= link_to r.name, stare_coins_path(coin: remove_postfix(r.name)) %></td>
+          <td><%= r.days_left&.round(2) %></td>
+          <td><%= r.annual_rate&.round(4) %>%</td>
+          <td><%= r.landed_rate&.round(4) %>%</td>
+          <td><%= r.gap_rate&.round(4) %>%</td>
+          <td><%= r.future_price %></td>
+          <td><%= r.spot_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-lg-block d-xl-none">
+  <h1><%= latest_time @records.first %></h1>
+  <table class="table">
+    <thead>
+      <tr class="shadow-sm">
+        <th scope="col"><p class="fw-bold display-5">Coin</p></th>
+        <th scope="col"><p class="fw-bold display-5">Days</p></th>
+        <th scope="col"><p class="fw-bold display-5">Annual</p></th>
+        <th scope="col"><p class="fw-bold display-5">Landed</p></th>
+        <th scope="col"><p class="fw-bold display-5">Gap Rate</p></th>
+        <th scope="col"><p class="fw-bold display-5">Future</p></th>
+        <th scope="col"><p class="fw-bold display-5">Spot</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @records.each do |r| %>
+        <tr class="shadow-sm">
+          <td class="display-6"><%= r.name %></td>
+          <td class="display-6"><%= r.days_left&.round(2) %></td>
+          <td class="display-6"><%= r.annual_rate&.round(4) %>%</td>
+          <td class="display-6"><%= r.landed_rate&.round(4) %>%</td>
+          <td class="display-6"><%= r.gap_rate&.round(4) %>%</td>
+          <td class="display-6"><%= r.future_price %></td>
+          <td class="display-6"><%= r.spot_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
