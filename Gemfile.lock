@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.com/
   specs:
     actioncable (6.0.4)
       actionpack (= 6.0.4)
@@ -180,9 +180,7 @@ GEM
       fugit (~> 1.1, >= 1.1.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.1.0)
-      ffi (~> 1.9)
-    sassc (2.1.0-x86_64-linux)
+    sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -261,7 +259,7 @@ DEPENDENCIES
   rails (~> 6.0.4)
   react-rails
   sass-rails (>= 6)
-  sassc (~> 2.1.0)
+  sassc (~> 2.4.0)
   selenium-webdriver
   sidekiq (~> 6.0.0)
   sidekiq-scheduler
