@@ -39,6 +39,8 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 
+RUN gem install sassc --version 2.4.0
+
 RUN bundle config build.nokogiri --use-system-libraries
 
 RUN bundle install
