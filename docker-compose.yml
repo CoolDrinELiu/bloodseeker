@@ -1,10 +1,11 @@
 version: '3.4'
 
 services:
-  app:
+  app: &web_base
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: 'starecow_app'
     depends_on:
       - database
       - redis
@@ -15,24 +16,22 @@ services:
       - gem_cache:/usr/local/bundle/gems
       - node_modules:/app/node_modules
     env_file: .env
-    environment:
-      RAILS_ENV: development
-
   database:
+    container_name: 'starecow_pg'
     image: postgres:12.1
     volumes:
       - db_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
-
+    env_file: .env
   redis:
+    container_name: 'starecow_redis'
     image: redis:5.0.7
 
   sidekiq:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *web_base
+    container_name: 'starecow_sidekiq'
     depends_on:
       - app
       - database
@@ -45,7 +44,7 @@ services:
     environment:
       RAILS_ENV: development
     entrypoint: ./entrypoints/sidekiq-entrypoint.sh
-
+    ports: []
 volumes:
   gem_cache:
   db_data:

@@ -1,10 +1,18 @@
 COMPOSE = docker-compose
 RAKE = ${COMPOSE} exec app bundle exec rake
+RUN  = ${COMPOSE} run
 
 run:
 	@${COMPOSE} exec app bundle exec
 start:
 	@${COMPOSE} up -d
+update:
+	@${RUN} app /bin/sh -c "yarn install && bundle exec rake assets:precompile RAILS_ENV=production"
+	@${COMPOSE} stop app
+	@${COMPOSE} up -d app
+restart:
+	@${COMPOSE} stop
+	@${COMPOSE} start
 stop:
 	@${COMPOSE} stop
 rakedb:
