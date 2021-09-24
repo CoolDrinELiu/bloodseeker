@@ -8,8 +8,8 @@ start:
 	@${COMPOSE} up -d
 update:
 	@${RUN} app /bin/sh -c "yarn install && bundle exec rake assets:precompile RAILS_ENV=production"
-	@${COMPOSE} stop app
-	@${COMPOSE} up -d app
+	@${COMPOSE} stop
+	@${COMPOSE} up -d
 restart:
 	@${COMPOSE} stop
 	@${COMPOSE} start

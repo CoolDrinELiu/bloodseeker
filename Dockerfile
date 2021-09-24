@@ -43,13 +43,11 @@ RUN bundle install
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --check-files
+RUN yarn install
 
 COPY . ./
 
-RUN rm -rf /home/app/rails-app/vendor/cache &&\
-    rm -rf '/var/cache/apk/*' '/tmp/*'
-
-ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
-
-CMD  ["bundle", "exec", "rails", "s"]
+RUN yarn cache clean && \
+  rm -rf node_modules tmp/cache vendor/assets test && \
+  rm -rf /home/app/rails-app/vendor/cache &&\
+  rm -rf '/var/cache/apk/*' '/tmp/*'

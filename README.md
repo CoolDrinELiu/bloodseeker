@@ -3,7 +3,7 @@
 # Docker bash
 docker exec -it starecow_pg sh
 docker exec -it starecow_app sh
-
+docker exec -it starecow_sidekiq sh
 # db
 psql -U postgres
 \l # show tabases
@@ -22,3 +22,5 @@ DATABASE_HOST=database
 REDIS_HOST=redis
 SECRET_KEY_BASE=xxx
 3. make dbmigrate to init the db
+
+docker tag image_id tag
