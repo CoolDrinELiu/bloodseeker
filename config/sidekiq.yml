@@ -8,7 +8,7 @@
 :schedule:
   hb_reader_job:
     # cron: "0 3 * * *"
-    every: '30s'
+    every: '50s'
     class: Schedules::HbReaderJob
     description: 'Huobi data'
 development:
