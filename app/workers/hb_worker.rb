@@ -10,7 +10,7 @@ class HbWorker
       Coin.create(
         name: g["coin"],
         days_left: g["days"],
-        annual_rate: g["expected_margin"],
+        annual_rate: g["margin"],
         landed_rate: g["real_margin_expected"],
         future_price: g["dm_first_bid"],
         spot_price: g["spot_first_bid"],
