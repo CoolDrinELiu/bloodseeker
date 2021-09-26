@@ -36,4 +36,4 @@ gem 'pg', '~>1.1.3'
 gem 'sidekiq', '~>6.0.0'
 gem "sidekiq-scheduler"
 gem 'react-rails'
-gem 'watchcow'
+gem 'watchcow', '~>0.2.12'

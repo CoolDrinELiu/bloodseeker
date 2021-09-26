@@ -16,8 +16,8 @@ services:
       - .:/app
       - gem_cache:/usr/local/bundle/gems
       - node_modules:/app/node_modules
-      - ./log:/home/app/log
-      - ./tmp:/home/app/rails-app/tmp
+      - ./log:/app/log
+      - ./tmp:/app/tmp
     env_file: .env
   database:
     container_name: 'starecow_pg'
