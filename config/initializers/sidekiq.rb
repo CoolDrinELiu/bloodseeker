@@ -12,4 +12,4 @@ Sidekiq.configure_client do |config|
   }
 end
 
-Sidekiq::Logging.logger = ActiveSupport::Logger.new(Rails.root.join("log/sidekiq.log"))
+SidekiqScheduler::Scheduler.enabled = true
