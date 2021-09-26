@@ -4,6 +4,7 @@ class HbWorker
   sidekiq_options retry: 1, backtrace: true
 
   def perform
+    status = true
     log = RakeLog.create(title: "HB Job")
     begin
       result = JSON.parse Watchcow::Client.call
